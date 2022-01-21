@@ -8,6 +8,9 @@
   <li class="nav-item">
     <%= link_to 'Time Entries', posts_path, class: "nav-link #{ active?(posts_path) }" %>
   </li>
+  <li class="nav-item">
+    <%= link_to 'Add New Time Entry', new_post_path, class: "nav-link #{ active?(new_post_path) }", id: 'new_post_from_nav' %>
+  </li>
   <li class="nav-item dropdown ms-auto">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Account</a>
     <ul class="dropdown-menu">
