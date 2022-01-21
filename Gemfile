@@ -18,6 +18,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'database_cleaner-active_record'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
 group :development do
