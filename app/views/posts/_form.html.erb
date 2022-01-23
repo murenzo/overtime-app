@@ -1,6 +1,14 @@
 <%= form_for @post do |f| %>
-  <%= f.date_field :date %>
-  <%= f.text_area :rationale %>
 
-  <%= f.submit 'Save' %>
+  <div class="mb-3">
+    <%= f.label :date, class: "form-label" %>
+    <%= f.date_field :date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :rationale, class: "form-label" %>
+    <%= f.text_area :rationale, class: "form-control" %>
+  </div>
+
+  <%= f.submit 'Save', class: "btn btn-primary" %>
 <% end %>
