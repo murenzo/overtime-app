@@ -8,13 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+require("jquery")
+require("gritter/js/jquery.gritter.js")
+
 import "bootstrap"
 import "../stylesheets/application"
-
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-  $('[data-toggle="popover"]').popover()
-})
+const images = require.context('../images', true)
 
 Rails.start()
 Turbolinks.start()

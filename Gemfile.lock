@@ -100,6 +100,7 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gritter (1.2.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -253,6 +254,7 @@ DEPENDENCIES
   database_cleaner-active_record
   devise (~> 4.8, >= 4.8.1)
   factory_bot_rails (~> 6.2)
+  gritter (= 1.2.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
