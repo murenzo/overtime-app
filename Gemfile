@@ -34,5 +34,6 @@ group :test do
   gem 'webdrivers'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "administrate"
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "gritter", "1.2.0"
