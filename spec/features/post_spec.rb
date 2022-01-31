@@ -7,22 +7,36 @@ describe 'navigate' do
   end
 
   describe 'index' do
-    it 'can be reached successfully' do
+    before do
       visit posts_path
+    end
+    it 'can be reached successfully' do
       expect(page.status_code).to eq(200)
     end
 
     it 'has a title of Posts' do
-      visit posts_path
       expect(page).to have_content(/Posts/)
     end
 
     it 'has a list of post' do
       post1 = FactoryBot.create(:post)
+      post1.update(user_id: @user.id)
       post2 = FactoryBot.create(:second_post)
+      post2.update(user_id: @user.id)
 
       visit posts_path
       expect(page).to have_content(/Some|Another/)
+    end
+
+    it 'has a scope so that only post creators can see their posts' do
+      post1 = Post.create(date: Date.yesterday, rationale: 'asdf', user_id: @user.id)
+      post2 = Post.create(date: Date.yesterday, rationale: 'asdf', user_id: @user.id)
+      
+      other_user = User.create(first_name: 'Non', last_name: 'Authorized', email: 'noauth@test.com', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+      post_from_other_user = Post.create(date: Date.yesterday, rationale: 'This post should not be seen', user_id: other_user.id)
+
+      visit posts_path
+      expect(page).to_not have_content(/This post should not be seen/)
     end
   end
 
@@ -38,6 +52,7 @@ describe 'navigate' do
   describe 'delete' do
     it 'can be deleted' do
       @post = FactoryBot.create(:post)
+      @post.update(user_id: @user.id)
       visit posts_path
 
       click_link("delete_post_#{@post.id}_from_index")
