@@ -3,7 +3,7 @@ FactoryBot.define do
     date { Date.today }
     rationale  { 'Some test rationale' }
     user
-  end  
+  end
 
   factory :second_post, class: 'Post' do
     date { Date.yesterday }
@@ -14,6 +14,6 @@ FactoryBot.define do
   factory :post_from_other_user, class: 'Post' do
     date { Date.yesterday }
     rationale { 'Some more content' }
-    non_authorized_user
+    second_user
   end
 end
